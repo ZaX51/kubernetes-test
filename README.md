@@ -4,7 +4,7 @@
 
 - [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
 
-## Run app
+## Run app with minikube
 
 ### Start minikube
 
@@ -12,7 +12,7 @@
 minikube start
 ```
 
-> **Note:** Add `--driver=hyperv` on Windows
+> **Info:** Add `--driver=hyperv` on Windows
 
 ### Set docker env
 
@@ -23,31 +23,23 @@ eval $(minikube docker-env)
 ### Build image
 
 ```bash
-docker build -t test-app .
+docker build -t nodeapp .
 ```
 
 ### Run in minikube
 
 ```bash
-kubectl run k8s-test --image=test-app --image-pull-policy=Never
+kubectl run nodeapp --image=nodeapp --image-pull-policy=Never
 ```
 
-### Check status
+### Apply deployment
 
 ```bash
-kubectl get pods
+kubectl apply -f k8s
 ```
 
-## Useful commands
-
-Kubernetes dashboard
+### Open app in browser
 
 ```bash
-minikube dashboard
-```
-
-Kubernetes events
-
-```bash
-kubectl get events
+minikube service nodeapp
 ```
