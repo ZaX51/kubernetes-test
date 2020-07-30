@@ -43,3 +43,9 @@ kubectl apply -f k8s
 ```bash
 minikube service nodeapp
 ```
+
+### Install Helm chart
+
+```bash
+helm install nodeapp ./helm
+```
