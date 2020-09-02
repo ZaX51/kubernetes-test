@@ -1,3 +1,8 @@
 node_modules
-npm-debug.log
-Dockerfile
+.git
+README.md
+helm
+k8s
+.gitignore
+k8s.md
+stack-dev.yml

@@ -1,14 +1,16 @@
-FROM node:12-alpine
+FROM node:14.4.0-alpine
 
-WORKDIR /usr/src/app
+WORKDIR /home/node/app
 
 COPY package.json ./
 
 COPY yarn.lock ./
 
-RUN yarn install --production
+RUN yarn install --production && yarn cache clean
 
 COPY . .
+
+USER node
 
 EXPOSE 3000
 
